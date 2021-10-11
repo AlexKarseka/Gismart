@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SFProText';
+    font-weight: 400;
+    src: url("../fonts/GoogleSans-Medium.woff") format("woff"); }
+  
+
+    @font-face {
+    font-family: 'SFProDisplay';
+    font-weight: 600;
+    src: url("../fonts/GoogleSans-Bold.woff") format("woff"); }
