@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Валидация first и last name
     function firstAndLastNameTest(input) {
-        return !/[A-Za-zА-Яа-яЁё\s]{2,}/.test(input.value)
+        return !/[\p{L}]{2,}/.test(input.value)
     }
 })
 
