@@ -22,15 +22,22 @@
     <div class="form__wrapper">
         <div class="form">
             <form action="#" id="form" class="form__body">
-                <div class="form__title">
-                    Please fill in the information
+                <div class="form__header">
+                    <div class="form__header-button">
+                        <button id='headerButton' type="button" class="header__button">
+                            Back
+                        </button>
+                    </div>
+                    <div class="form__header-title">
+                        Please fill in the information
+                    </div>
                 </div>
                 <div class="form__item">
                     <div class="form__label">
                         Title
                     </div>
                     <select name="title" class="select">
-                        <option value="mr" selected>Choose title</option>
+                        <option value='' selected>Choose title</option>
                         <option value="mr">mr</option>
                         <option value="mrs">mrs</option>
                         <option value="ms">ms</option>
@@ -39,16 +46,16 @@
                     </select>
                 </div>
                 <div class="form__item">
-                    <label for="formName" class="form__label">First Name*:</label>
-                    <input id="formName" type="text" name="firstName" class="form__input _req _name"/>
+                    <label for="formFirstName" class="form__label">First Name*:</label>
+                    <input id="formFirstName" type="text" name="firstName" class="form__input _req _name"/>
                     <div class="formMesError">
                         Oops, you entered the wrong data! 
                         The field must not contain numbers and must be more than two characters
                     </div>
                 </div>
                 <div class="form__item">
-                    <label for="formName" class="form__label">Last Name*:</label>
-                    <input id="formName" type="text" name="lastName" class="form__input _req _name"/>
+                    <label for="formLastName" class="form__label">Last Name*:</label>
+                    <input id="formLastName" type="text" name="lastName" class="form__input _req _name"/>
                     <div class="formMesError">
                         Oops, you entered the wrong data! 
                         The field must not contain numbers and must be more than two characters

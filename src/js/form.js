@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
             email: document.querySelector('[name ="email"]').value
         };
 
-        // передача данных серверу и получение json файла и передача его в DOM 
+        // transferring data to the server, receiving a json file and transferring it to the DOM
         if (error === 0) {
             const url = 'https://dummyapi.io/data/v1/user/create';
-        
+
             const config = {
                 method: "POST",
                 headers: {
@@ -31,35 +31,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(user)
             }
+
             fetch(url, config)
-            .then((response) => response.json())
-            .then((user) => {
-                const newUser = (user)
-                userList.insertAdjacentHTML('beforeend',            
-                    `<li class="list__container-user">
-                        <div class="picture__user">
-                            <img class="picture__user-img" src="${newUser.picture}" alt="user">
-                        </div>
-                        <div class="info__user">
-                            <div class="title__user style__text">${newUser.title}</div>
-                            <div class="firstName__user style__text">${newUser.firstName}</div>
-                            <div class="lastName__user style__text">${newUser.lastName}</div>
-                        </div>
-                    </li>`)
-            })
-            if (error === 0) {
-                form.reset()
-                formCloser()
-                alert('Congratulations! Data are submitted successfully!=)')
-            } else {
-                alert('Ошибка')
-            }
+                .then((response) => {
+                    response.json()
+                    if (response.ok) {
+                        userList.insertAdjacentHTML('beforeend',            
+                        `<li class="list__container-user">
+                            <div class="picture__user">
+                                <img class="picture__user-img" src="${user.picture}" alt="user">
+                            </div>
+                            <div class="info__user">
+                                <div class="title__user style__text">${user.title}</div>
+                                <div class="firstName__user style__text">${user.firstName}</div>
+                                <div class="lastName__user style__text">${user.lastName}</div>
+                            </div>
+                        </li>`)
+                        form.reset()
+                        formCloser()
+                        alert('Congratulations! Data are submitted successfully!=)')
+                    } else {
+                        alert('Ошибка')
+                    }
+                })
         } else {
             alert('The form is filled out incorrectly')
         }
     }
 
-    // Валидация формы
+    // Form validation
     function formValidate(form) {
         let error = 0
         let formReq = document.querySelectorAll('._req')
@@ -100,21 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
         input.classList.remove('_error')
     }
 
-    // Валидация email
+    // Email validation
     function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value)
     }
 
-    // Валидация first и last name
+    // First and last name validation
     function firstAndLastNameTest(input) {
         return !/^[a-zA-Zа-яА-ЯёЁ]{2,}$/.test(input.value)
     }
 })
 
-// Закрытие формы, открытие лист
+// Closing a form, opening a sheet
 function formCloser() {
     const form = document.querySelector('.form__wrapper')
     const list = document.querySelector('.list')
     form.style.display = 'none'
     list.style.display = 'block'
 }
+
+const headerButton = document.getElementById('headerButton')
+
+headerButton.onclick = (() => {
+    formCloser()
+})

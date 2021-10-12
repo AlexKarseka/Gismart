@@ -15,7 +15,7 @@ function createUserCard(item) {
         )
     } 
 
-// Получение массива с сервера, передача в DOM
+// Receiving an array from the server, passing it to the DOM
 async function getUserInfo(container) {
     const url = 'https://dummyapi.io/data/v1/user'
     const config = {
